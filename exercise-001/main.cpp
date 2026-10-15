@@ -3,6 +3,16 @@
 
 #include "config.h"
 
+void changeValueByParameter(int value) {
+    value = 99;
+    fmt::print("Wert innerhalb von changeValueByParameter: {}\n", value);
+}
+
+void changeValueByPointer(int *ptr) {
+    *ptr = 77;
+    fmt::print("Wert innerhalb von changeValueByPointer: {}\n", *ptr);
+}
+
 int main(int argc, char **argv) {
 
     /**
@@ -12,7 +22,15 @@ int main(int argc, char **argv) {
      */
     fmt::print("Hello, {}!\n", tea::PROJECT_NAME);
 
-    /* INSERT YOUR CODE HERE */
+    int y = 5;
+
+    fmt::print("y vor changeValueByParameter: {}\n", y);
+    changeValueByParameter(y);
+    fmt::print("y nach changeValueByParameter: {}\n", y);
+
+    fmt::print("y vor changeValueByPointer: {}\n", y);
+    changeValueByPointer(&y);
+    fmt::print("y nach changeValueByPointer: {}\n", y);
 
     return 0; /* exit gracefully*/
 }
